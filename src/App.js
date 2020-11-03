@@ -6,12 +6,18 @@ const styles = {
     color: "#8B4513",
   },
 
-  textUnderImgTheName: {
+  textUnderImgTheShopName: {
     borderBottomStyle: "ridge",
     textAlign: "center",
     fontFamily: "monospace",
     color: "#8B4513",
     paddingBottom: "5px",
+  },
+
+  textUnderImgTheName: {
+    textAlign: "center",
+    fontFamily: "monospace",
+    color: "#8B4513",
   },
 
   textBeforeTheLineHeader: {
@@ -59,6 +65,7 @@ function App() {
     <div>
       <img style={styles.itemImg} src={product.img} alt={product.name} />
       <p style={styles.textUnderImgTheName}>{product.name}</p>
+      <p style={styles.textUnderImgTheShopName}>{product.shop}</p>
       <p style={styles.textUnderImgThePrice}>{product.price}</p>
     </div>
   ));
