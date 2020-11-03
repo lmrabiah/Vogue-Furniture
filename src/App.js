@@ -1,75 +1,7 @@
-import products from "./products";
-const styles = {
-  textUnderImgThePrice: {
-    textAlign: "center",
-    fontFamily: "monospace",
-    color: "#8B4513",
-  },
-
-  textUnderImgTheShopName: {
-    borderBottomStyle: "ridge",
-    textAlign: "center",
-    fontFamily: "monospace",
-    color: "#8B4513",
-    paddingBottom: "5px",
-  },
-
-  textUnderImgTheName: {
-    textAlign: "center",
-    fontFamily: "monospace",
-    color: "#8B4513",
-  },
-
-  textBeforeTheLineHeader: {
-    textAlign: "center",
-    fontWeight: "100",
-    paddingBottom: "10px",
-    fontFamily: "monospace",
-    borderBottomStyle: "ridge",
-    borderBottomColor: "#8B4513",
-    color: "#bc5a45",
-  },
-
-  textHeader: {
-    fontFamily: "monospace",
-    color: "#bc5a45",
-    fontWeight: "100",
-    fontSize: "32px",
-    marginLeft: "730px",
-  },
-
-  imgLogo: {
-    width: "300px",
-    height: "300px",
-    marginLeft: "715px",
-    marginBottom: "10px",
-  },
-
-  itemImg: {
-    justifyContent: "center",
-    alignItems: "center",
-    width: "300px",
-    height: "300px",
-    marginLeft: "50px",
-  },
-
-  totalPicStyle: {
-    alignItem: "center",
-    justifyContent: "center",
-    display: "flex",
-  },
-};
+import AllProducts from "./component/AllProducts";
+import styles from "./styles";
 
 function App() {
-  const productList = products.map((product) => (
-    <div>
-      <img style={styles.itemImg} src={product.img} alt={product.name} />
-      <p style={styles.textUnderImgTheName}>{product.name}</p>
-      <p style={styles.textUnderImgTheShopName}>{product.shop}</p>
-      <p style={styles.textUnderImgThePrice}>{product.price}</p>
-    </div>
-  ));
-
   return (
     <div>
       <div>
@@ -84,8 +16,7 @@ function App() {
           alt="logo"
         />
       </div>
-
-      <div style={styles.totalPicStyle}>{productList}</div>
+      <AllProducts />
     </div>
   );
 }
