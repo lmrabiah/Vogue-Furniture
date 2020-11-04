@@ -9,7 +9,7 @@ const products = [
 
   {
     name: "Gilded Vista Wall Mirror",
-    price: "30 KD",
+    price: "125 KD",
     shop: "Shop: West elm",
     img:
       "https://assets.weimgs.com/weimgs/rk/images/wcm/products/202040/0187/gilded-vista-wall-mirror-c.jpg",

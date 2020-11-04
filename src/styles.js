@@ -1,61 +1,81 @@
-const styles = {
-  textUnderImgThePrice: {
-    textAlign: "center",
-    fontFamily: "monospace",
-    color: "#8B4513",
-  },
+import styled, { createGlobalStyle } from "styled-components";
 
-  textUnderImgTheShopName: {
-    borderBottomStyle: "ridge",
-    textAlign: "center",
-    fontFamily: "monospace",
-    color: "#8B4513",
-    paddingBottom: "5px",
-  },
+const GlobalStyle = createGlobalStyle`
+body {
+color:black
+}
+`;
 
-  textUnderImgTheName: {
-    textAlign: "center",
-    fontFamily: "monospace",
-    color: "#8B4513",
-  },
+const TextUnderImgThePrice = styled.p`
+  text-align: center;
+  font-family: monospace;
+  color: #8b4513;
+  margin-bottom: 70px;
+`;
 
-  textBeforeTheLineHeader: {
-    textAlign: "center",
-    fontWeight: "100",
-    paddingBottom: "10px",
-    fontFamily: "monospace",
-    borderBottomStyle: "ridge",
-    borderBottomColor: "#8B4513",
-    color: "#bc5a45",
-  },
+const TextUnderImgTheShopName = styled.p`
+  border-bottom-style: ridge;
+  text-align: center;
+  font-family: monospace;
+  color: #8b4513;
+  padding-bottom: 5px;
+`;
 
-  textHeader: {
-    fontFamily: "monospace",
-    color: "#bc5a45",
-    fontWeight: "100",
-    fontSize: "32px",
-    marginLeft: "730px",
-  },
+const TextUnderImgTheName = styled.p`
+  text-align: center;
+  font-family: monospace;
+  color: #8b4513;
+`;
 
-  imgLogo: {
-    width: "300px",
-    height: "300px",
-    marginLeft: "715px",
-    marginBottom: "10px",
-  },
+const TextBeforeTheLineHeader = styled.h2`
+  text-align: center;
+  font-weight: 100;
+  padding-bottom: 10px;
+  font-family: monospace;
+  border-bottom-style: ridge;
+  border-bottom-color: #8b4513;
+  color: #bc5a45;
+`;
 
-  itemImg: {
-    justifyContent: "center",
-    alignItems: "center",
-    width: "300px",
-    height: "300px",
-    marginLeft: "20px",
-  },
+const TextHeader = styled.h1`
+  font-family: monospace;
+  color: #bc5a45;
+  font-weight: 100;
+  font-size: 32px;
+  margin-left: 730px;
+`;
 
-  totalPicStyle: {
-    alignItem: "center",
-    justifyContent: "center",
-    display: "flex",
-  },
+const ImgLogo = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+`;
+
+const ItemImg = styled.img`
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  margin-left: 20px;
+  object-fit: cover;
+`;
+
+const TotalPicStyle = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export {
+  GlobalStyle,
+  TextHeader,
+  TextBeforeTheLineHeader,
+  ItemImg,
+  TotalPicStyle,
+  ImgLogo,
+  TextUnderImgTheName,
+  TextUnderImgTheShopName,
+  TextUnderImgThePrice,
 };
-export default styles;

@@ -1,4 +1,4 @@
-import styles from "../styles";
+import { TotalPicStyle } from "../styles";
 import products from "../products";
 import OneItemProduct from "./OneItemProduct";
 
@@ -7,7 +7,7 @@ const AllProducts = () => {
     <OneItemProduct productObject={product} />
   ));
 
-  return <div style={styles.totalPicStyle}>{productList}</div>;
+  return <TotalPicStyle>{productList}</TotalPicStyle>;
 };
 
 export default AllProducts;

@@ -1,16 +1,18 @@
-import styles from "../styles";
-
+import {
+  ItemImg,
+  TextUnderImgTheName,
+  TextUnderImgTheShopName,
+  TextUnderImgThePrice,
+} from "../styles";
 const OneItemProduct = (props) => {
   return (
     <div>
-      <img
-        style={styles.itemImg}
-        src={props.productObject.img}
-        alt={props.productObject.name}
-      />
-      <p style={styles.textUnderImgTheName}>{props.productObject.name}</p>
-      <p style={styles.textUnderImgTheShopName}>{props.productObject.shop}</p>
-      <p style={styles.textUnderImgThePrice}>{props.productObject.price}</p>
+      <ItemImg src={props.productObject.img} alt={props.productObject.name} />
+      <TextUnderImgTheName>{props.productObject.name}</TextUnderImgTheName>
+      <TextUnderImgTheShopName>
+        {props.productObject.shop}
+      </TextUnderImgTheShopName>
+      <TextUnderImgThePrice>{props.productObject.price}</TextUnderImgThePrice>
     </div>
   );
 };
