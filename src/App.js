@@ -1,14 +1,44 @@
 import AllProducts from "./component/AllProducts";
+import { useState } from "react";
 import {
   GlobalStyle,
   TextHeader,
   TextBeforeTheLineHeader,
   ImgLogo,
+  ThemeButton,
 } from "./styles";
 
+import { ThemeProvider } from "styled-components";
+
+const theme = {
+  light: {
+    mainColor: "#8b4513",
+    backgroundColor: "rgba(204, 192, 183, 0.04)",
+    redShade: "#bc5a45",
+  },
+  dark: {
+    mainColor: "pink",
+    backgroundColor: "black",
+    redShade: "pink",
+  },
+};
+
 function App() {
+  // const [currentTheme, setCurrenttheme] = useState("light");
+  // const changeMode = () => {
+  // if (currentTheme === "light") setCurrenttheme("dark");
+  // else setCurrenttheme("light");
+  const [currentTheme, setCurrenttheme] = useState("light");
+  const changeMode = () =>
+    setCurrenttheme(currentTheme === "light" ? "dark" : "light");
+
   return (
-    <div>
+    <ThemeProvider theme={theme[currentTheme]}>
+      <GlobalStyle />
+      <ThemeButton onClick={changeMode}>
+        {currentTheme === "light" ? "Dark" : "Light"} mode
+      </ThemeButton>
+
       <div>
         <TextHeader>Vogue Furniture</TextHeader>
         <TextBeforeTheLineHeader>
@@ -21,7 +51,7 @@ function App() {
         />
       </div>
       <AllProducts />
-    </div>
+    </ThemeProvider>
   );
 }
 
