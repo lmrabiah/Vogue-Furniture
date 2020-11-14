@@ -1,9 +1,32 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link, NavLink } from "react-router-dom";
 
+// const GlobalStyle = createGlobalStyle`
+// body {
+// background-color:${(props) => props.theme.backgroundColor}
+// }
+// `;
 const GlobalStyle = createGlobalStyle`
 body {
-background-color:${(props) => props.theme.backgroundColor}
+background-color:${({ theme }) => theme.backgroundColor}
 }
+`;
+const Logo = styled(Link)`
+  padding: 0.7em;
+
+  img {
+    width: 8rem;
+  }
+`;
+
+const NavItem = styled(NavLink)`
+  padding: 0.25em 1em;
+  color: Black;
+
+  &.active {
+    color: black;
+    background-color: grey;
+  }
 `;
 
 const TextUnderImgThePrice = styled.p`
@@ -58,11 +81,9 @@ const ImgLogo = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  margin-top: 100px;
+  width: 550px;
   height: 300px;
-  border-top-left-radius: 20%;
-
-  border-bottom-right-radius: 20%;
 
   padding-bottom: 10px;
 `;
@@ -80,9 +101,44 @@ const TotalPicStyle = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-  flex-wrap: wrap;
+  object-fit: cover;
 `;
 
+const SearchBarStyled = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;
+const DetailWrapper = styled.div`
+  display: block;
+
+  width: 80%;
+  color: ${(props) => props.theme.redShade};
+  font-family: monospace;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom-style: ridge;
+
+  img {
+    width: 40%;
+    float: center;
+  }
+
+  p {
+    color: ${(props) => props.theme.mainColor};
+    font-family: monospace;
+  }
+`;
+
+export const DeleteButtonStyled = styled.button`
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.redShade};
+  font-family: monospace;
+  justify-content: center;
+  align-items: center;
+`;
 export {
   GlobalStyle,
   TextHeader,
@@ -94,4 +150,8 @@ export {
   TextUnderImgTheShopName,
   TextUnderImgThePrice,
   ThemeButton,
+  SearchBarStyled,
+  DetailWrapper,
+  Logo,
+  NavItem,
 };
