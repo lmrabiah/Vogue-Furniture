@@ -1,32 +1,33 @@
-import { TotalPicStyle } from "../styles";
-
-import OneItemProduct from "./OneItemProduct";
+import { observer } from "mobx-react";
 import { useState } from "react";
+
+//style
+import { TotalPicStyle } from "../styles";
+// store
+import productStore from "../stores/productStore";
+
+//component
+import OneItemProduct from "./OneItemProduct";
 import SearchBar from "./SearchBar";
+import PlusProductBtn from "./buttons/PlusProductBtn";
 
 const AllProducts = (props) => {
   const [query, setQuery] = useState("");
 
-  const [_products, setProduct] = useState(props.products);
-
-  const filtterProducts = _products.filter((product) =>
+  const filtterProducts = productStore.products.filter((product) =>
     product.name.toLowerCase().includes(query.toLowerCase())
   );
-  console.log(filtterProducts);
+
   const productList = filtterProducts.map((product) => (
-    <OneItemProduct
-      product={product}
-      setProduct={props.setProduct}
-      key={product.id}
-      deleteProduct={props.deleteProduct}
-    />
+    <OneItemProduct product={product} key={product.id} />
   ));
   return (
     <>
       <SearchBar setQuery={setQuery} />
+      <PlusProductBtn />
       <TotalPicStyle>{productList}</TotalPicStyle>;
     </>
   );
 };
 
-export default AllProducts;
+export default observer(AllProducts);

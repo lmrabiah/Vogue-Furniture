@@ -1,19 +1,15 @@
-import DeleteButton from "./buttons/DeleteButton";
 import { Link } from "react-router-dom";
-import AllProducts from "./AllProducts";
-
-import products from "../products";
+//components
+import DeleteButton from "./buttons/DeleteButton";
+//styles
 import {
   ItemImg,
   TextUnderImgTheName,
   TextUnderImgTheShopName,
   TextUnderImgThePrice,
-  DeleteButtonStyled,
 } from "../styles";
 
-const OneItemProduct = (props) => {
-  const product = props.product;
-
+const OneItemProduct = ({ product }) => {
   return (
     <div>
       <Link to={`/products/${product.slug}`}>
@@ -23,10 +19,7 @@ const OneItemProduct = (props) => {
       <TextUnderImgTheName>{product.name}</TextUnderImgTheName>
       <TextUnderImgTheShopName>{product.shop}</TextUnderImgTheShopName>
       <TextUnderImgThePrice>{product.price}</TextUnderImgThePrice>
-      <DeleteButton
-        productId={product.id}
-        deleteProduct={props.deleteProduct}
-      />
+      <DeleteButton productId={product.id} />
     </div>
   );
 };

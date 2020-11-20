@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// // Styling
 
+// // picturesLogo
 import lightLogo from "../lightModeLogoPic.png";
 import darkLogo from "../darkModeLogoPic.png";
+
+//styles
 import { NavItem, Logo, ThemeButton } from "../styles";
+
+///
+
 const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg">

@@ -1,10 +1,6 @@
-import {
-  GlobalStyle,
-  TextHeader,
-  TextBeforeTheLineHeader,
-  ImgLogo,
-} from "../styles";
 import shopPic from "../shop.png";
+//style
+import { TextHeader, TextBeforeTheLineHeader, ImgLogo } from "../styles";
 
 const Home = () => {
   return (

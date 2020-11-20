@@ -1,17 +1,22 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 
-// const GlobalStyle = createGlobalStyle`
-// body {
-// background-color:${(props) => props.theme.backgroundColor}
-// }
-// `;
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 body {
 background-color:${({ theme }) => theme.backgroundColor}
 }
 `;
-const Logo = styled(Link)`
+
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
+
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+  }
+`;
+export const Logo = styled(Link)`
   padding: 0.7em;
 
   img {
@@ -19,7 +24,7 @@ const Logo = styled(Link)`
   }
 `;
 
-const NavItem = styled(NavLink)`
+export const NavItem = styled(NavLink)`
   padding: 0.25em 1em;
   color: Black;
 
@@ -29,14 +34,18 @@ const NavItem = styled(NavLink)`
   }
 `;
 
-const TextUnderImgThePrice = styled.p`
+export const TextUnderImgThePrice = styled.p`
   text-align: center;
   font-family: monospace;
   color: ${(props) => props.theme.mainColor};
   margin-bottom: 70px;
 `;
 
-const TextUnderImgTheShopName = styled.p`
+export const PlusRub = styled.div`
+  cursor: pointer;
+`;
+
+export const TextUnderImgTheShopName = styled.p`
   border-bottom-style: ridge;
   text-align: center;
   font-family: monospace;
@@ -45,13 +54,13 @@ const TextUnderImgTheShopName = styled.p`
   padding-bottom: 7px;
 `;
 
-const TextUnderImgTheName = styled.p`
+export const TextUnderImgTheName = styled.p`
   text-align: center;
   font-family: monospace;
   color: ${(props) => props.theme.mainColor};
 `;
 
-const TextBeforeTheLineHeader = styled.h2`
+export const TextBeforeTheLineHeader = styled.h2`
   text-align: center;
   font-weight: 100;
   padding-bottom: 10px;
@@ -61,7 +70,7 @@ const TextBeforeTheLineHeader = styled.h2`
   color: ${(props) => props.theme.redShade};
 `;
 
-const TextHeader = styled.h1`
+export const TextHeader = styled.h1`
   font-family: monospace;
   color: ${(props) => props.theme.redShade};
   font-weight: 100;
@@ -69,7 +78,7 @@ const TextHeader = styled.h1`
   text-align: center;
 `;
 
-const ThemeButton = styled.button`
+export const ThemeButton = styled.button`
   font-size: 1em;
   margin: 1.25em;
   padding: 0.25em 1em;
@@ -77,7 +86,7 @@ const ThemeButton = styled.button`
   background-color: ${(props) => props.theme.redShade};
 `;
 
-const ImgLogo = styled.img`
+export const ImgLogo = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -88,7 +97,7 @@ const ImgLogo = styled.img`
   padding-bottom: 10px;
 `;
 
-const ItemImg = styled.img`
+export const ItemImg = styled.img`
   justify-content: center;
   align-items: center;
   width: 300px;
@@ -97,20 +106,21 @@ const ItemImg = styled.img`
   object-fit: cover;
 `;
 
-const TotalPicStyle = styled.div`
+export const TotalPicStyle = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
   object-fit: cover;
+  flex-wrap: wrap;
 `;
 
-const SearchBarStyled = styled.input`
+export const SearchBarStyled = styled.input`
   padding: 0.5rem;
   margin: 1rem auto;
   display: block;
   width: 40%;
 `;
-const DetailWrapper = styled.div`
+export const DetailWrapper = styled.div`
   display: block;
 
   width: 80%;
@@ -133,25 +143,11 @@ const DetailWrapper = styled.div`
 `;
 
 export const DeleteButtonStyled = styled.button`
-  border-radius: 3px;
+  border-radius: 10px;
   background-color: ${(props) => props.theme.redShade};
   font-family: monospace;
   justify-content: center;
   align-items: center;
+  margin-bottom: 45px;
+  margin-left: 120px;
 `;
-export {
-  GlobalStyle,
-  TextHeader,
-  TextBeforeTheLineHeader,
-  ItemImg,
-  TotalPicStyle,
-  ImgLogo,
-  TextUnderImgTheName,
-  TextUnderImgTheShopName,
-  TextUnderImgThePrice,
-  ThemeButton,
-  SearchBarStyled,
-  DetailWrapper,
-  Logo,
-  NavItem,
-};

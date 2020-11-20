@@ -1,16 +1,15 @@
 import { Component, useState } from "react";
-import products from "./products";
 import { Route, Switch } from "react-router";
 
 //components
 import Home from "./component/Home";
 import DetailProduct from "./component/DetailProduct";
 import AllProducts from "./component/AllProducts";
+import NavBar from "./component/NavBar";
 
 //style
-import { GlobalStyle, ThemeButton } from "./styles";
+import { GlobalStyle } from "./styles";
 import { ThemeProvider } from "styled-components";
-import NavBar from "./component/NavBar";
 
 const theme = {
   light: {
@@ -29,14 +28,10 @@ const theme = {
 
 function App() {
   const [currentTheme, setCurrenttheme] = useState("light");
-  const [_products, setProducts] = useState(products);
 
-  const deleteProduct = (productId) => {
-    const updateProducts = _products.filter(
-      (product) => product.id !== productId
-    );
-    setProducts(updateProducts);
-  };
+  ///to add product from model whe have to writr it in app.js
+
+  //end
 
   const changeMode = () =>
     setCurrenttheme(currentTheme === "light" ? "dark" : "light");
@@ -44,15 +39,16 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
+
       <NavBar currentTheme={currentTheme} changeMode={changeMode} />
 
       <Switch>
         <Route path="/products/:productSlug">
-          <DetailProduct products={_products} deleteProduct={deleteProduct} />
+          <DetailProduct />
         </Route>
 
         <Route path="/products">
-          <AllProducts products={_products} deleteProduct={deleteProduct} />
+          <AllProducts />
         </Route>
 
         <Route path="/">

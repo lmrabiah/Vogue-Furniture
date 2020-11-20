@@ -1,14 +1,18 @@
 import React from "react";
-import { DetailWrapper } from "../styles";
 import { Redirect, useParams } from "react-router-dom";
-import AllProducts from "./AllProducts";
+import { observer } from "mobx-react";
 
+//styles
+import { DetailWrapper } from "../styles";
+//store
+import productStore from "../stores/productStore";
+//component
 import DeleteButton from "./buttons/DeleteButton";
 
-const DetailProduct = (props) => {
+const DetailProduct = () => {
   const productSlug = useParams().productSlug;
 
-  const product = props.products.find(
+  const product = productStore.products.find(
     (_product) => _product.slug === productSlug
   );
 
@@ -20,12 +24,9 @@ const DetailProduct = (props) => {
       <img src={product.img} alt={product.name} />
       <p>{product.description}</p>
       <p>{product.price} </p>
-      <DeleteButton
-        productId={product.id}
-        deleteProduct={props.deleteProduct}
-      ></DeleteButton>
+      <DeleteButton productId={product.id}></DeleteButton>
     </DetailWrapper>
   );
 };
 
-export default DetailProduct;
+export default observer(DetailProduct);

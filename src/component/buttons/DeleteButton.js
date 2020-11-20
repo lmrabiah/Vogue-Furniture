@@ -1,14 +1,17 @@
 import React from "react";
+
+//styles
 import { DeleteButtonStyled } from "../../styles";
 
-const DeleteButton = (props) => {
-  const productId = props.productId;
-  const handleDelete = () => {
-    props.deleteProduct(productId);
-  };
+//store
+import productStore from "../../stores/productStore";
+
+const DeleteButton = ({ productId }) => {
   return (
     <div>
-      <DeleteButtonStyled onClick={handleDelete}>delete</DeleteButtonStyled>
+      <DeleteButtonStyled onClick={() => productStore.deleteProduct(productId)}>
+        delete
+      </DeleteButtonStyled>
     </div>
   );
 };
