@@ -7,13 +7,15 @@ import { CreateButtonStyled } from "../../styles";
 //store
 import productStore from "../../stores/productStore";
 
-const ProductModel = ({ isOpen, closeModal }) => {
-  const [product, setProduct] = useState({
-    name: "",
-    price: 0,
-    description: "",
-    image: "",
-  });
+const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
+  const [product, setProduct] = useState(
+    oldProduct ?? {
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+    }
+  );
 
   const handleChange = (event) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
@@ -21,20 +23,26 @@ const ProductModel = ({ isOpen, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    productStore.creatProduct(product);
+    // if (oldProduct)
+    // productStore.updateProduct(product)
+    //  else
+    //   productStore.creatProduct(product); 
+    //if u want to acsses a funtion inside [] u have to trat it as a string
+    productStore[oldProduct ? "updateProduct" : "creatProduct"](product);
     closeModal();
   };
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
-      contentLabel="Example Modal"
+      contentLabel="product Modal"
     >
       <form onSubmit={handleSubmit}>
         <div className="form-group row">
           <div className="col-6">
             <label>Name</label>
             <input
+              value={product.name}
               name="name"
               onChange={handleChange}
               type="text"
@@ -44,6 +52,7 @@ const ProductModel = ({ isOpen, closeModal }) => {
           <div className="col-6">
             <label>Price</label>
             <input
+              value={product.price}
               name="price"
               onChange={handleChange}
               type="number"
@@ -55,6 +64,7 @@ const ProductModel = ({ isOpen, closeModal }) => {
         <div className="form-group">
           <label>Description</label>
           <input
+            value={product.description}
             name="description"
             onChange={handleChange}
             type="text"
@@ -64,6 +74,7 @@ const ProductModel = ({ isOpen, closeModal }) => {
         <div className="form-group">
           <label>Image</label>
           <input
+            value={product.img}
             name="img"
             onChange={handleChange}
             type="text"
@@ -72,9 +83,16 @@ const ProductModel = ({ isOpen, closeModal }) => {
         </div>
         <div className="col-6">
           <label>shop</label>
-          <input name="shop" onChange={handleChange} className="form-control" />
+          <input
+            value={product.shop}
+            name="shop"
+            onChange={handleChange}
+            className="form-control"
+          />
         </div>
-        <CreateButtonStyled>creat</CreateButtonStyled>
+        <CreateButtonStyled>
+          {oldProduct ? "update" : "creat"}
+        </CreateButtonStyled>
       </form>
     </Modal>
   );

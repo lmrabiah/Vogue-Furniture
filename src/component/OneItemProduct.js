@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-//components
+//Buttons
 import DeleteButton from "./buttons/DeleteButton";
+import UpdateButton from "./buttons/UpdateButton";
 //styles
 import {
   ItemImg,
@@ -19,6 +20,7 @@ const OneItemProduct = ({ product }) => {
       <TextUnderImgTheName>{product.name}</TextUnderImgTheName>
       <TextUnderImgTheShopName>{product.shop}</TextUnderImgTheShopName>
       <TextUnderImgThePrice>{product.price}</TextUnderImgThePrice>
+      <UpdateButton product={product} />
       <DeleteButton productId={product.id} />
     </div>
   );

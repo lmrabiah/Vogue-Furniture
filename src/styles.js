@@ -143,11 +143,21 @@ export const DetailWrapper = styled.div`
 `;
 
 export const DeleteButtonStyled = styled.button`
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: ${(props) => props.theme.redShade};
   font-family: monospace;
   justify-content: center;
   align-items: center;
   margin-bottom: 45px;
+  margin-left: 120px;
+`;
+
+export const UpdateButtonStyled = styled.button`
+  border-radius: 5px;
+  background-color: ${(props) => props.theme.redShade};
+  font-family: monospace;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
   margin-left: 120px;
 `;
