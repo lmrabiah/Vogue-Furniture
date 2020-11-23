@@ -1,11 +1,9 @@
 import { makeObservable, observable, action } from "mobx";
 import slugify from "react-slugify";
-
-//component
-import products from "../products";
+import axios from "axios";
 
 class ProductStore {
-  products = products;
+  products = [];
 
   constructor() {
     makeObservable(this, {
@@ -13,8 +11,18 @@ class ProductStore {
       creatProduct: action,
       deleteProduct: action,
       updateProduct: action,
+      fetchProducts: action,
     });
   }
+
+  fetchProducts = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/products");
+      this.products = response.data;
+    } catch (error) {
+      console.error("ProductStore -> fetchProducts -> error", error);
+    }
+  };
 
   updateProduct = (updatedProduct) => {
     const product = this.products.find(
@@ -40,4 +48,5 @@ class ProductStore {
   };
 }
 const productStore = new ProductStore();
+productStore.fetchProducts();
 export default productStore;
