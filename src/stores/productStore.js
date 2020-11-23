@@ -37,14 +37,34 @@ class ProductStore {
     //product.img = updatedProduct.img
   };
 
-  creatProduct = (newProduct) => {
-    newProduct.slug = slugify(newProduct.name);
-    newProduct.id = this.products[this.products.length - 1].id + 1;
-    this.products.push(newProduct);
+  creatProduct = async (newProduct) => {
+    // newProduct.slug = slugify(newProduct.name);
+    // newProduct.id = this.products[this.products.length - 1].id + 1;
+    // this.products.push(newProduct);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/products",
+        newProduct
+      );
+      this.products.push(response.data);
+    } catch (error) {
+      console.error(console.error);
+    }
   };
 
-  deleteProduct = (productId) => {
-    this.products = this.products.filter((product) => product.id !== productId);
+  deleteProduct = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:8000/products/${productId}`);
+      this.products = this.products.filter(
+        (product) => product.id !== productId
+      );
+    } catch (error) {
+      console.error(
+        "🚀 ~ file: productStore.js ~ line 53 ~ ProductStore ~ deleteProduct ~ error",
+        error
+      );
+    }
   };
 }
 const productStore = new ProductStore();
