@@ -13,12 +13,16 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
       name: "",
       price: 0,
       description: "",
-      image: "",
+      img: "",
+      shop: "",
     }
   );
 
   const handleChange = (event) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
+  };
+  const handleImg = (event) => {
+    setProduct({ ...product, img: event.target.files[0] });
   };
 
   const handleSubmit = (event) => {
@@ -26,7 +30,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
     // if (oldProduct)
     // productStore.updateProduct(product)
     //  else
-    //   productStore.creatProduct(product); 
+    //   productStore.creatProduct(product);
     //if u want to acsses a funtion inside [] u have to trat it as a string
     productStore[oldProduct ? "updateProduct" : "creatProduct"](product);
     closeModal();
@@ -74,10 +78,9 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
         <div className="form-group">
           <label>Image</label>
           <input
-            value={product.img}
             name="img"
-            onChange={handleChange}
-            type="text"
+            onChange={handleImg}
+            type="file"
             className="form-control"
           />
         </div>

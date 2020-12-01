@@ -24,17 +24,29 @@ class ProductStore {
     }
   };
 
-  updateProduct = (updatedProduct) => {
-    const product = this.products.find(
-      (product) => product.id === updatedProduct.id
-    );
-    for (const key in product) product[key] = updatedProduct[key];
+  updateProduct = async (updatedProduct) => {
+    try {
+      const formData = new FormData();
 
-    product.slug = slugify(product.name);
-    //product.name = updatedProduct.name
-    //product.description = updatedProduct.description
-    //product.shop = updatedProduct.shop
-    //product.img = updatedProduct.img
+      for (const key in updatedProduct)
+        formData.append(key, updatedProduct[key]);
+      console.log(updatedProduct.id);
+      await axios.post(
+        `http://localhost:8000/products/${updatedProduct.id}`,
+        formData
+      );
+
+      const product = this.products.find(
+        (product) => product.id === updatedProduct.id
+      );
+      for (const key in product) product[key] = updatedProduct[key];
+      product.img = URL.createObjectURL(updatedProduct.img);
+    } catch (error) {
+      console.error(
+        "🚀 ~ file: productStore.js ~ line 35 ~ ProductStore ~ updateProduct ~ error",
+        error
+      );
+    }
   };
 
   creatProduct = async (newProduct) => {
@@ -43,9 +55,12 @@ class ProductStore {
     // this.products.push(newProduct);
 
     try {
-      const response = await axios.post(
+      const formData = new FormData();
+
+      for (const key in newProduct) formData.append(key, newProduct[key]);
+      const response = await axios.put(
         "http://localhost:8000/products",
-        newProduct
+        formData
       );
       this.products.push(response.data);
     } catch (error) {

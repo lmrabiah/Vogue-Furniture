@@ -29,8 +29,8 @@ export const NavItem = styled(NavLink)`
   color: Black;
 
   &.active {
-    color: black;
-    background-color: grey;
+    color: ${(props) => props.theme.mainColor};
+    text-decoration-line: underline;
   }
 `;
 

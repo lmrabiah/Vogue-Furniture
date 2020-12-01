@@ -19,9 +19,9 @@ const theme = {
     red: "#ff3232",
   },
   dark: {
-    mainColor: "pink",
+    mainColor: "white",
     backgroundColor: "black",
-    redShade: "pink",
+    redShade: "white",
     red: "#ff3232",
   },
 };

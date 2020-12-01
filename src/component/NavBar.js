@@ -32,7 +32,15 @@ const NavBar = (props) => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ml-auto">
-          <NavItem to="/products" style={{ margin: 10, float: "right" }}>
+          <NavItem
+            to="/products"
+            style={{
+              margin: 10,
+              float: "right",
+              marginTop: 25,
+              color: props.currentTheme === "light" ? "black" : "white",
+            }}
+          >
             Products
           </NavItem>
           <ThemeButton onClick={props.changeMode}>
