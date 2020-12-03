@@ -43,6 +43,17 @@ const NavBar = (props) => {
           >
             Products
           </NavItem>
+          <NavItem
+            to="/stores"
+            style={{
+              margin: 10,
+              float: "right",
+              marginTop: 25,
+              color: props.currentTheme === "light" ? "black" : "white",
+            }}
+          >
+            Stores
+          </NavItem>
           <ThemeButton onClick={props.changeMode}>
             {props.currentTheme === "light" ? "Dark" : "Light"} mode
           </ThemeButton>

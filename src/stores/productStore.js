@@ -4,10 +4,12 @@ import axios from "axios";
 
 class ProductStore {
   products = [];
+  loading = true;
 
   constructor() {
     makeObservable(this, {
       products: observable,
+      loading: observable,
       creatProduct: action,
       deleteProduct: action,
       updateProduct: action,
@@ -19,6 +21,7 @@ class ProductStore {
     try {
       const response = await axios.get("http://localhost:8000/products");
       this.products = response.data;
+      this.loading = false;
     } catch (error) {
       console.error("ProductStore -> fetchProducts -> error", error);
     }
@@ -31,7 +34,7 @@ class ProductStore {
       for (const key in updatedProduct)
         formData.append(key, updatedProduct[key]);
       console.log(updatedProduct.id);
-      await axios.post(
+      await axios.put(
         `http://localhost:8000/products/${updatedProduct.id}`,
         formData
       );
@@ -58,7 +61,7 @@ class ProductStore {
       const formData = new FormData();
 
       for (const key in newProduct) formData.append(key, newProduct[key]);
-      const response = await axios.put(
+      const response = await axios.post(
         "http://localhost:8000/products",
         formData
       );

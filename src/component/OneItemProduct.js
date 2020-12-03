@@ -18,7 +18,6 @@ const OneItemProduct = ({ product }) => {
       </Link>
 
       <TextUnderImgTheName>{product.name}</TextUnderImgTheName>
-      <TextUnderImgTheShopName>{product.shop}</TextUnderImgTheShopName>
       <TextUnderImgThePrice>{product.price}</TextUnderImgThePrice>
       <UpdateButton product={product} />
       <DeleteButton productId={product.id} />

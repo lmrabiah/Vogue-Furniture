@@ -83,7 +83,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
             type="file"
             className="form-control"
           />
-        </div>
+          {/* </div>
         <div className="col-6">
           <label>shop</label>
           <input
@@ -91,7 +91,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
             name="shop"
             onChange={handleChange}
             className="form-control"
-          />
+          /> */}
         </div>
         <CreateButtonStyled>
           {oldProduct ? "update" : "creat"}

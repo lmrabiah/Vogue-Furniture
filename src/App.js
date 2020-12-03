@@ -1,12 +1,14 @@
+//React
 import { Component, useState } from "react";
-import { Route, Switch } from "react-router";
+import { observer } from "mobx-react";
 
 //components
-import Home from "./component/Home";
-import DetailProduct from "./component/DetailProduct";
-import AllProducts from "./component/AllProducts";
+import Routes from "./component/Routes";
 import NavBar from "./component/NavBar";
-
+import FullLoadingScreen from "./component/FullLoadingScreen";
+//Stores
+import storeStore from "./stores/storeStore";
+import productStore from "./stores/productStore";
 //style
 import { GlobalStyle } from "./styles";
 import { ThemeProvider } from "styled-components";
@@ -39,24 +41,15 @@ function App() {
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-
       <NavBar currentTheme={currentTheme} changeMode={changeMode} />
-
-      <Switch>
-        <Route path="/products/:productSlug">
-          <DetailProduct />
-        </Route>
-
-        <Route path="/products">
-          <AllProducts />
-        </Route>
-
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      {productStore.loading || storeStore.loading ? (
+        <FullLoadingScreen />
+      ) : (
+        <Routes />
+      )}
+      ;
     </ThemeProvider>
   );
 }
 
-export default App;
+export default observer(App);
