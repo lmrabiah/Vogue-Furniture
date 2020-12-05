@@ -17,6 +17,8 @@ class ProductStore {
     });
   }
 
+  getProductId = (productId) =>
+    this.products.find((product) => product.id === productId);
   fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:8000/products");
@@ -42,7 +44,7 @@ class ProductStore {
       const product = this.products.find(
         (product) => product.id === updatedProduct.id
       );
-      for (const key in product) product[key] = updatedProduct[key];
+      for (const key in updatedProduct) product[key] = updatedProduct[key];
       product.img = URL.createObjectURL(updatedProduct.img);
     } catch (error) {
       console.error(
@@ -52,7 +54,7 @@ class ProductStore {
     }
   };
 
-  creatProduct = async (newProduct) => {
+  creatProduct = async (newProduct, store) => {
     // newProduct.slug = slugify(newProduct.name);
     // newProduct.id = this.products[this.products.length - 1].id + 1;
     // this.products.push(newProduct);
@@ -62,18 +64,27 @@ class ProductStore {
 
       for (const key in newProduct) formData.append(key, newProduct[key]);
       const response = await axios.post(
-        "http://localhost:8000/products",
+        `http://localhost:8000/stores/${store.id}/products`,
         formData
       );
       this.products.push(response.data);
+      store.products.push({ id: response.data.id });
     } catch (error) {
       console.error(console.error);
     }
   };
 
-  deleteProduct = async (productId) => {
+  deleteProduct = async (productId, store) => {
     try {
       await axios.delete(`http://localhost:8000/products/${productId}`);
+
+      const newProducts = store.products.filter(
+        (product) => product.id !== productId
+      );
+      store = {
+        ...store,
+        products: newProducts,
+      };
       this.products = this.products.filter(
         (product) => product.id !== productId
       );

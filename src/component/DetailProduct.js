@@ -22,8 +22,9 @@ const DetailProduct = () => {
     <DetailWrapper>
       <h1>{product.name}</h1>
       <img src={product.img} alt={product.name} />
-      <p>{product.description}</p>
-      <p>{product.price} </p>
+      <p>shop: {product.shop}</p>
+      <p>description: {product.description}</p>
+      <p>{product.price} KD </p>
 
       <DeleteButton productId={product.id}></DeleteButton>
     </DetailWrapper>

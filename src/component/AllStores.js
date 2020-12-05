@@ -9,7 +9,6 @@ import storeStore from "../stores/storeStore";
 //component
 import OneItemStore from "./OneItemStore";
 import SearchBar from "./SearchBar";
-import PlusProductBtn from "./buttons/PlusProductBtn";
 
 const AllStores = (props) => {
   const [query, setQuery] = useState("");
@@ -24,7 +23,7 @@ const AllStores = (props) => {
   return (
     <>
       <SearchBar setQuery={setQuery} />
-      <PlusProductBtn />
+
       <TotalPicStyle>{storeList}</TotalPicStyle>
     </>
   );

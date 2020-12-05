@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 //Buttons
 import DeleteButton from "./buttons/DeleteButton";
 import UpdateButton from "./buttons/UpdateButton";
@@ -10,7 +11,7 @@ import {
   TextUnderImgThePrice,
 } from "../styles";
 
-const OneItemProduct = ({ product }) => {
+const OneItemProduct = ({ product, store }) => {
   return (
     <div>
       <Link to={`/products/${product.slug}`}>
@@ -18,11 +19,13 @@ const OneItemProduct = ({ product }) => {
       </Link>
 
       <TextUnderImgTheName>{product.name}</TextUnderImgTheName>
-      <TextUnderImgThePrice>{product.price}</TextUnderImgThePrice>
+      <TextUnderImgTheName>shop: {product.shop}</TextUnderImgTheName>
+      <TextUnderImgThePrice>{product.price} KD</TextUnderImgThePrice>
+
       <UpdateButton product={product} />
-      <DeleteButton productId={product.id} />
+      <DeleteButton productId={product.id} store={store} />
     </div>
   );
 };
 
-export default OneItemProduct;
+export default observer(OneItemProduct);

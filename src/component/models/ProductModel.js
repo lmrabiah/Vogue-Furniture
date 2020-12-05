@@ -7,7 +7,7 @@ import { CreateButtonStyled } from "../../styles";
 //store
 import productStore from "../../stores/productStore";
 
-const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
+const ProductModel = ({ isOpen, closeModal, oldProduct, store }) => {
   const [product, setProduct] = useState(
     oldProduct ?? {
       name: "",
@@ -27,13 +27,13 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // if (oldProduct)
-    // productStore.updateProduct(product)
-    //  else
-    //   productStore.creatProduct(product);
-    //if u want to acsses a funtion inside [] u have to trat it as a string
-    productStore[oldProduct ? "updateProduct" : "creatProduct"](product);
     closeModal();
+    //if u want to acsses a funtion inside [] u have to trat it as a string
+    //   productStore[oldProduct ? "updateProduct" : "creatProduct"](product);
+    //   closeModal();
+
+    if (oldProduct) productStore.updateProduct(product);
+    else productStore.creatProduct(product, store);
   };
   return (
     <Modal
@@ -53,6 +53,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
               className="form-control"
             />
           </div>
+
           <div className="col-6">
             <label>Price</label>
             <input
@@ -83,7 +84,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
             type="file"
             className="form-control"
           />
-          {/* </div>
+        </div>
         <div className="col-6">
           <label>shop</label>
           <input
@@ -91,7 +92,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct }) => {
             name="shop"
             onChange={handleChange}
             className="form-control"
-          /> */}
+          />
         </div>
         <CreateButtonStyled>
           {oldProduct ? "update" : "creat"}

@@ -6,10 +6,12 @@ import { DeleteButtonStyled } from "../../styles";
 //store
 import productStore from "../../stores/productStore";
 
-const DeleteButton = ({ productId }) => {
+const DeleteButton = ({ productId, store }) => {
   return (
     <div>
-      <DeleteButtonStyled onClick={() => productStore.deleteProduct(productId)}>
+      <DeleteButtonStyled
+        onClick={() => productStore.deleteProduct(productId, store)}
+      >
         delete
       </DeleteButtonStyled>
     </div>

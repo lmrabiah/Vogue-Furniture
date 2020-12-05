@@ -8,11 +8,11 @@ background-color:${({ theme }) => theme.backgroundColor}
 `;
 
 export const CreateButtonStyled = styled.button`
-  color: ${(props) => props.theme.backgroundColor};
-  background-color: ${(props) => props.theme.mainColor};
+  color: black;
+  background-color: ${(props) => props.theme.redShade};
 
   &:hover {
-    color: ${(props) => props.theme.mainColor};
+    color: black;
     background-color: ${(props) => props.theme.backgroundColor};
   }
 `;
