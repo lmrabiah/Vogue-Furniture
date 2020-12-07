@@ -19,6 +19,7 @@ class ProductStore {
 
   getProductId = (productId) =>
     this.products.find((product) => product.id === productId);
+
   fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:8000/products");

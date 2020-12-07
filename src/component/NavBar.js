@@ -6,12 +6,14 @@ import darkLogo from "../darkModeLogoPic.png";
 
 //styles
 import { NavItem, Logo, ThemeButton } from "../styles";
+import SignupButton from "./buttons/SignupButton";
 
 ///
 
 const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg">
+      <SignupButton />
       <Logo to="/" className="navbar-brand">
         <img
           src={props.currentTheme === "light" ? lightLogo : darkLogo}
