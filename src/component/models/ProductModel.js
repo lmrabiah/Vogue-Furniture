@@ -41,6 +41,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct, store }) => {
       onRequestClose={closeModal}
       contentLabel="product Modal"
     >
+      <h3> Add a product to the store</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-group row">
           <div className="col-6">
@@ -86,7 +87,7 @@ const ProductModel = ({ isOpen, closeModal, oldProduct, store }) => {
           />
         </div>
         <div className="col-6">
-          <label>shop</label>
+          <label>Shop</label>
           <input
             value={product.shop}
             name="shop"
@@ -94,8 +95,10 @@ const ProductModel = ({ isOpen, closeModal, oldProduct, store }) => {
             className="form-control"
           />
         </div>
+        <p></p>
+
         <CreateButtonStyled>
-          {oldProduct ? "update" : "creat"}
+          {oldProduct ? "Update" : "Create"}
         </CreateButtonStyled>
       </form>
     </Modal>

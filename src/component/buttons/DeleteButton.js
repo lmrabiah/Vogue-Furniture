@@ -12,7 +12,7 @@ const DeleteButton = ({ productId, store }) => {
       <DeleteButtonStyled
         onClick={() => productStore.deleteProduct(productId, store)}
       >
-        delete
+        Delete
       </DeleteButtonStyled>
     </div>
   );

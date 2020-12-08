@@ -2,13 +2,12 @@ import { observer } from "mobx-react";
 import { useState } from "react";
 
 //style
-import { TotalPicStyle } from "../styles";
+import { DetailWrapperTest } from "../styles";
 // store
 import productStore from "../stores/productStore";
 //component
 import OneItemProduct from "./OneItemProduct";
 import SearchBar from "./SearchBar";
-import PlusProductBtn from "./buttons/PlusProductBtn";
 
 const AllProducts = ({ products, store }) => {
   const [query, setQuery] = useState("");
@@ -24,7 +23,8 @@ const AllProducts = ({ products, store }) => {
   return (
     <>
       <SearchBar setQuery={setQuery} />
-      <TotalPicStyle>{productList}</TotalPicStyle>
+
+      <DetailWrapperTest>{productList}</DetailWrapperTest>
     </>
   );
 };

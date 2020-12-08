@@ -26,12 +26,13 @@ const DetailStore = () => {
   return (
     <>
       <DetailWrapper>
+        <p></p>
         <h1>{store.name}</h1>
         <img src={store.img} alt={store.name} />
-        {/* <p>{store.description}</p> */}
       </DetailWrapper>
-      <AllProducts products={productFromProductStore} store={store} />
+      <p></p>
       <PlusProductBtn store={store} />
+      <AllProducts products={productFromProductStore} store={store} />
     </>
   );
 };

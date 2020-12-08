@@ -1,8 +1,8 @@
 import React from "react";
 
 // // picturesLogo
-import lightLogo from "../lightModeLogoPic.png";
-import darkLogo from "../darkModeLogoPic.png";
+import logoL from "../logoL.png";
+import logoD from "../logoD.png";
 
 //styles
 import { NavItem, Logo, ThemeButton } from "../styles";
@@ -12,12 +12,12 @@ import SignupButton from "./buttons/SignupButton";
 
 const NavBar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <SignupButton />
+    <nav className="navbar navbar-expand-lg" color="green">
       <Logo to="/" className="navbar-brand">
         <img
-          src={props.currentTheme === "light" ? lightLogo : darkLogo}
-          width="100"
+          src={props.currentTheme === "light" ? logoL : logoD}
+          width="500px"
+          height="80px"
         />
       </Logo>
 
@@ -56,6 +56,7 @@ const NavBar = (props) => {
           >
             Stores
           </NavItem>
+          <SignupButton />
           <ThemeButton onClick={props.changeMode}>
             {props.currentTheme === "light" ? "Dark" : "Light"} mode
           </ThemeButton>

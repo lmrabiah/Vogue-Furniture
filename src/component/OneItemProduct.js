@@ -19,8 +19,9 @@ const OneItemProduct = ({ product, store }) => {
       </Link>
 
       <TextUnderImgTheName>{product.name}</TextUnderImgTheName>
-      <TextUnderImgTheName>shop: {product.shop}</TextUnderImgTheName>
-      <TextUnderImgThePrice>{product.price} KD</TextUnderImgThePrice>
+      <TextUnderImgTheName>Store: {product.shop}</TextUnderImgTheName>
+
+      <TextUnderImgTheName>price: {product.price} KD</TextUnderImgTheName>
 
       <UpdateButton product={product} />
       <DeleteButton productId={product.id} store={store} />

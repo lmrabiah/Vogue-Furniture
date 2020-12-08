@@ -50,7 +50,7 @@ const Signup = ({ closeModal, isOpen }) => {
             onChange={handleChange}
           />
         </div>
-        {/* <div className="form-group row">
+        <div className="form-group row">
           <div className="col-6">
             <label>First Name</label>
             <input
@@ -81,7 +81,7 @@ const Signup = ({ closeModal, isOpen }) => {
             className="form-control"
             onChange={handleChange}
           />
-        </div> */}
+        </div>
         <div className="form-group">
           <label>Password</label>
           <input

@@ -15,15 +15,16 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   light: {
-    mainColor: "#8b4513",
-    backgroundColor: "rgba(204, 192, 183, 0.04)",
-    redShade: "#bc5a45",
+    mainColor: "#003300",
+    // backgroundColor: "#f1f1f1",
+    backgroundColor: "#ededed",
+    redShade: "#9e2b00",
     red: "#ff3232",
   },
   dark: {
-    mainColor: "white",
+    mainColor: "#e0e0e0",
     backgroundColor: "black",
-    redShade: "white",
+    redShade: "#e0e0e0",
     red: "#ff3232",
   },
 };
