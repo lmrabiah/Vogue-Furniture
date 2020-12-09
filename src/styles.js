@@ -73,7 +73,7 @@ export const TextBeforeTheLineHeader = styled.h2`
   text-align: center;
   font-weight: 100;
   padding-bottom: 10px;
-  font-family: sans-serif;
+  font-family: "Cinzel", serif;
   border-bottom-style: ridge;
   border-bottom-color: ${(props) => props.theme.redShade};
   color: ${(props) => props.theme.mainColor};
@@ -81,8 +81,8 @@ export const TextBeforeTheLineHeader = styled.h2`
 `;
 
 export const TextHeader = styled.h1`
-  font-family: sans-serif;
-  color: ${(props) => props.theme.mainColor};
+  font-family: "Sacramento", cursive;
+  color: ${(props) => props.theme.redShade};
   font-weight: 400;
   font-size: 43px;
   text-align: center;
@@ -100,10 +100,10 @@ export const ThemeButton = styled.button`
   color: black;
   font-family: sans-serif;
 
-  border-color: black;
+  border-color: #54601a;
   &:hover {
     background-color: #9a4332;
-    border-color: black;
+    border-color: #54601a;
 
     color: #f1f1f1;
   }
@@ -267,10 +267,10 @@ export const AuthButtonStyled = styled.button`
   color: black;
   font-family: sans-serif;
 
-  border-color: black;
+  border-color: #54601a;
   &:hover {
     background-color: #9a4332;
-
+    border-color: #54601a;
     color: #f1f1f1;
   }
 `;
