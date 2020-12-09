@@ -18,7 +18,7 @@ const OneItemProduct = ({ product, store }) => {
       </Link>
 
       <TextUnderImgThePrice>{product.name}</TextUnderImgThePrice>
-      <TextUnderImgThePrice>Store: {product.shop}</TextUnderImgThePrice>
+      {/* <TextUnderImgThePrice>Store: {product.shop}</TextUnderImgThePrice> */}
 
       <TextUnderImgThePrice>price: {product.price} KD</TextUnderImgThePrice>
 

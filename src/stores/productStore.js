@@ -82,10 +82,7 @@ class ProductStore {
       const newProducts = store.products.filter(
         (product) => product.id !== productId
       );
-      store = {
-        ...store,
-        products: newProducts,
-      };
+      store.products = newProducts;
       this.products = this.products.filter(
         (product) => product.id !== productId
       );
