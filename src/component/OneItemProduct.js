@@ -6,7 +6,6 @@ import UpdateButton from "./buttons/UpdateButton";
 //styles
 import {
   ItemImg,
-  TextUnderImgTheName,
   TextUnderImgTheShopName,
   TextUnderImgThePrice,
 } from "../styles";
@@ -18,10 +17,10 @@ const OneItemProduct = ({ product, store }) => {
         <ItemImg src={product.img} alt={product.name} />
       </Link>
 
-      <TextUnderImgTheName>{product.name}</TextUnderImgTheName>
-      <TextUnderImgTheName>Store: {product.shop}</TextUnderImgTheName>
+      <TextUnderImgThePrice>{product.name}</TextUnderImgThePrice>
+      <TextUnderImgThePrice>Store: {product.shop}</TextUnderImgThePrice>
 
-      <TextUnderImgTheName>price: {product.price} KD</TextUnderImgTheName>
+      <TextUnderImgThePrice>price: {product.price} KD</TextUnderImgThePrice>
 
       <UpdateButton product={product} />
       <DeleteButton productId={product.id} store={store} />

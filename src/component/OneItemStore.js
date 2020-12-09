@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import DeleteButton from "./buttons/DeleteButton";
 import UpdateButton from "./buttons/UpdateButton";
 //styles
-import { ItemImg, TextUnderImgTheName } from "../styles";
+import { ItemImg, NameOfStore } from "../styles";
 
 const OneItemStore = ({ store }) => {
   return (
@@ -12,7 +12,7 @@ const OneItemStore = ({ store }) => {
         <ItemImg src={store.img} alt={store.name} />
       </Link>
 
-      <TextUnderImgTheName>{store.name}</TextUnderImgTheName>
+      <NameOfStore>{store.name}</NameOfStore>
     </div>
   );
 };

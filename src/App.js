@@ -18,8 +18,8 @@ const theme = {
     mainColor: "#003300",
     // backgroundColor: "#f1f1f1",
     backgroundColor: "#ededed",
-    redShade: "#9e2b00",
-    red: "#ff3232",
+    redShade: "#9a4332",
+    red: "#9a4332",
   },
   dark: {
     mainColor: "#e0e0e0",

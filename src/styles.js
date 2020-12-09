@@ -44,6 +44,7 @@ export const TextUnderImgThePrice = styled.p`
   /* margin-bottom: 70px; */
   /* padding-bottom: 10px;
   border-bottom-style: ridge; */
+  font-size: 15px;
 `;
 
 export const PlusRub = styled.div`
@@ -53,19 +54,19 @@ export const PlusRub = styled.div`
 export const TextUnderImgTheShopName = styled.p`
   border-bottom-style: ridge;
   text-align: center;
-  font-family: monospace;
+  font-family: sans-serif;
   border-bottom-style: ridge;
   border-bottom-color: ${(props) => props.theme.redShade};
   color: ${(props) => props.theme.mainColor};
   padding-bottom: 7px;
 `;
 
-export const TextUnderImgTheName = styled.p`
+export const NameOfStore = styled.p`
   text-align: center;
   font-family: sans-serif;
   color: ${(props) => props.theme.mainColor};
-  padding-top: 15px;
-  font-size: 24px;
+  padding-top: 5px;
+  font-size: 20px;
 `;
 
 export const TextBeforeTheLineHeader = styled.h2`
@@ -76,7 +77,7 @@ export const TextBeforeTheLineHeader = styled.h2`
   border-bottom-style: ridge;
   border-bottom-color: ${(props) => props.theme.redShade};
   color: ${(props) => props.theme.mainColor};
-  font-size: 21px;
+  font-size: 23px;
 `;
 
 export const TextHeader = styled.h1`
@@ -101,8 +102,8 @@ export const ThemeButton = styled.button`
 
   border-color: black;
   &:hover {
-    background-color: #772000;
-    border-color: #f1f1f1;
+    background-color: #9a4332;
+    border-color: black;
 
     color: #f1f1f1;
   }
@@ -150,7 +151,7 @@ export const DetailWrapper = styled.div`
 
   width: 80%;
   color: ${(props) => props.theme.redShade};
-  font-family: monospace;
+  font-family: sans-serif;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -162,7 +163,15 @@ export const DetailWrapper = styled.div`
 
   p {
     color: ${(props) => props.theme.mainColor};
-    font-family: monospace;
+    font-family: sans-serif;
+    font-size: 17px;
+  }
+  h1: {
+    text-align: center;
+    font-family: sans-serif;
+    color: ${(props) => props.theme.mainColor};
+    padding-top: 5px;
+    font-size: 20px;
   }
 `;
 
@@ -171,7 +180,7 @@ export const DetailWrapperTest = styled.div`
 
   width: 90%;
   color: ${(props) => props.theme.redShade};
-  font-family: monospace;
+  font-family: sans-serif;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -200,25 +209,28 @@ export const DetailWrapperTest = styled.div`
 
   p {
     color: ${(props) => props.theme.mainColor};
-    font-family: monospace;
+    font-family: sans-serif;
   }
   button {
-    border-radius: 5px;
-    background-color: ${(props) => props.theme.redShade};
-    font-family: monospace;
-    justify-content: center;
-    align-items: center;
-    display: "flex";
+    font-size: 0.5em;
+    padding: 0.9em;
+    background-color: #9a4332;
+    font-family: sans-serif;
+    color: #f1f1f1;
+    border-color: ${(props) => props.theme.mainColor};
+    margin-bottom: 5px;
+    &:hover {
+      background-color: #f1f1f1;
+    }
   }
 `;
 
 export const DeleteButtonStyled = styled.button`
-  font-size: 1em;
-  margin: 1.25em;
-  padding: 0.25em 1em;
-  background-color: #772000;
+  font-size: 0.5em;
+  padding: 0.9em;
+  background-color: #9a4332;
   font-family: sans-serif;
-  color: #f1f1f1;
+  color: #f0d6d1;
   border-color: ${(props) => props.theme.mainColor};
   &:hover {
     background-color: #f1f1f1;
@@ -229,11 +241,12 @@ export const DeleteButtonStyled = styled.button`
 
 export const UpdateButtonStyled = styled.button`
   font-size: 1em;
-  padding: 0.25em 1em;
-  background-color: #772000;
+  margin: 1.25em;
+  background-color: #9a4332;
   font-family: sans-serif;
   color: #f1f1f1;
   border-color: ${(props) => props.theme.mainColor};
+  margin-bottom: 5px;
   &:hover {
     background-color: #f1f1f1;
     border-color: ${(props) => props.theme.mainColor};
@@ -256,7 +269,7 @@ export const AuthButtonStyled = styled.button`
 
   border-color: black;
   &:hover {
-    background-color: #772000;
+    background-color: #9a4332;
 
     color: #f1f1f1;
   }
