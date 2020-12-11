@@ -7,9 +7,18 @@ class AuthStore {
   }
   //if user have value mean it's liged in else he is not
   user = null;
+
+  setUser = (token) => {
+    localStorage.setItem("myToken", token);
+    this.user = decode(token);
+    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+  };
+
   signup = async (userData) => {
     try {
-      await instance.post("/signup", userData);
+      const res = await instance.post("/signup", userData);
+
+      this.setUser(res.data.token);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
     }
@@ -18,14 +27,32 @@ class AuthStore {
   signin = async (userData) => {
     try {
       const res = await instance.post("/signin", userData);
-      this.user = decode(res.data.token);
+
+      this.setUser(res.data.token);
     } catch (error) {
-      this.user = decode(res.data.token);
       console.log("AuthStore -> signin -> error", error);
+    }
+  };
+
+  signout = () => {
+    this.user = null;
+    localStorage.removeItem("myToken");
+    delete instance.defaults.headers.common.Authorization;
+  };
+  checkForToken = () => {
+    const token = localStorage.getItem("myToken");
+    if (token) {
+      const currentTime = Date.now();
+      const user = decode(token);
+      if (user.exp >= currentTime) {
+        this.setUser(token);
+      } else {
+        this.signout();
+      }
     }
   };
 }
 
 const authStore = new AuthStore();
-
+authStore.checkForToken();
 export default authStore;

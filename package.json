@@ -14,7 +14,7 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
-    "react-icons": "^3.11.0",
+    "react-icons": "^4.1.0",
     "react-loading-screen": "^0.0.17",
     "react-modal": "^3.11.2",
     "react-router": "^5.2.0",

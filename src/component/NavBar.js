@@ -1,16 +1,16 @@
 import React from "react";
-
+import { observer } from "mobx-react";
 // // picturesLogo
 import logoL from "../logoL.png";
 import logoD from "../logoD.png";
-
+import { FiLogOut } from "react-icons/fi";
 //styles
-import { NavItem, Logo, ThemeButton } from "../styles";
+import { NavItem, Logo, ThemeButton, UsernameStyled } from "../styles";
 import SignupButton from "./buttons/SignupButton";
 import SigninButton from "./buttons/SigninButton";
+import authStore from "../stores/authStore";
 
 ///
-
 const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg" color="green">
@@ -57,8 +57,22 @@ const NavBar = (props) => {
           >
             Stores
           </NavItem>
-          <SignupButton />
-          <SigninButton />
+
+          {authStore.user ? (
+            <>
+              <UsernameStyled>Hello, {authStore.user.username}</UsernameStyled>
+              <FiLogOut
+                onClick={authStore.signout}
+                size="2em"
+                color="#54601A"
+              />
+            </>
+          ) : (
+            <>
+              <SigninButton />
+              <SignupButton />
+            </>
+          )}
           <ThemeButton onClick={props.changeMode}>
             {props.currentTheme === "light" ? "Dark" : "Light"} mode
           </ThemeButton>
@@ -69,4 +83,4 @@ const NavBar = (props) => {
   );
 };
 
-export default NavBar;
+export default observer(NavBar);

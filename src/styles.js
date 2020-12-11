@@ -6,7 +6,10 @@ body {
 background-color:${({ theme }) => theme.backgroundColor}
 }
 `;
-
+export const UsernameStyled = styled.p`
+  padding: 0.25em 1em;
+  margin-top: 24px;
+`;
 export const CreateButtonStyled = styled.button`
   color: ${(props) => props.theme.backgroundColor};
   background-color: ${(props) => props.theme.redShade};

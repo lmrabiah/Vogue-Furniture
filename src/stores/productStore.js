@@ -1,6 +1,6 @@
 import { makeObservable, observable, action } from "mobx";
 import slugify from "react-slugify";
-import axios from "axios";
+import instance from "./instance";
 
 class ProductStore {
   products = [];
@@ -22,7 +22,7 @@ class ProductStore {
 
   fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/products");
+      const response = await instance.get("/products");
       this.products = response.data;
       this.loading = false;
     } catch (error) {
@@ -37,10 +37,7 @@ class ProductStore {
       for (const key in updatedProduct)
         formData.append(key, updatedProduct[key]);
       console.log(updatedProduct.id);
-      await axios.put(
-        `http://localhost:8000/products/${updatedProduct.id}`,
-        formData
-      );
+      await instance.put(`/products/${updatedProduct.id}`, formData);
 
       const product = this.products.find(
         (product) => product.id === updatedProduct.id
@@ -64,8 +61,8 @@ class ProductStore {
       const formData = new FormData();
 
       for (const key in newProduct) formData.append(key, newProduct[key]);
-      const response = await axios.post(
-        `http://localhost:8000/stores/${store.id}/products`,
+      const response = await instance.post(
+        `/stores/${store.id}/products`,
         formData
       );
       this.products.push(response.data);
@@ -77,7 +74,7 @@ class ProductStore {
 
   deleteProduct = async (productId, store) => {
     try {
-      await axios.delete(`http://localhost:8000/products/${productId}`);
+      await instance.delete(`/products/${productId}`);
 
       const newProducts = store.products.filter(
         (product) => product.id !== productId

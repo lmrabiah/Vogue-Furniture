@@ -10,6 +10,7 @@ import storeStore from "../stores/storeStore";
 import AllProducts from "./AllProducts";
 import PlusProductBtn from "./buttons/PlusProductBtn";
 import productStore from "../stores/productStore";
+import authStore from "../stores/authStore";
 
 const DetailStore = () => {
   const storeSlug = useParams().storeSlug;
@@ -30,8 +31,10 @@ const DetailStore = () => {
         <h1>{store.name}</h1>
         <img src={store.img} alt={store.name} />
       </DetailWrapper>
+
       <p></p>
-      <PlusProductBtn store={store} />
+
+      {authStore.user && <PlusProductBtn store={store} />}
       <AllProducts products={productFromProductStore} store={store} />
     </>
   );
